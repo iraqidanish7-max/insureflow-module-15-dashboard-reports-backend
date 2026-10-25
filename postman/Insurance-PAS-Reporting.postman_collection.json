@@ -1,0 +1,27 @@
+{
+  "info": {
+    "name": "Insurance PAS - Reporting Service",
+    "description": "Local tests for Module 15. Current business data is intentionally dummy data.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [{"key":"baseUrl","value":"http://localhost:8087"}],
+  "item": [
+    {"name":"Health","request":{"method":"GET","url":"{{baseUrl}}/api/v1/health"}},
+    {"name":"Dashboard Summary","request":{"method":"GET","url":"{{baseUrl}}/api/v1/dashboard/summary"}},
+    {"name":"Dashboard KPI","request":{"method":"GET","url":"{{baseUrl}}/api/v1/dashboard/kpi"}},
+    {"name":"Dashboard Charts","request":{"method":"GET","url":"{{baseUrl}}/api/v1/dashboard/charts"}},
+    {"name":"Customer Report","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/customers"}},
+    {"name":"Policy Report - Active","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/policies?status=Active"}},
+    {"name":"Premium Report - Successful","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/premiums?status=SUCCESS"}},
+    {"name":"Claims Report - Settled","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/claims?status=SETTLED"}},
+    {"name":"Underwriting Report - Pending","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/underwriting?status=PENDING"}},
+    {"name":"Agent Report","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/agents"}},
+    {"name":"Financial Report","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/financial"}},
+    {"name":"Export CSV","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/export/csv?category=policies"}},
+    {"name":"Export Excel","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/export/excel?category=customers"}},
+    {"name":"Export PDF","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/export/pdf?category=claims"}},
+    {"name":"List Schedules","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/schedule"}},
+    {"name":"Create Schedule","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\n  \"reportId\": 1,\n  \"scheduleType\": \"Daily\",\n  \"nextRunDate\": \"2026-10-21T09:00:00\",\n  \"emailTo\": \"demo@example.com\"\n}"},"url":"{{baseUrl}}/api/v1/reports/schedule"}},
+    {"name":"Execution History","request":{"method":"GET","url":"{{baseUrl}}/api/v1/reports/executions"}}
+  ]
+}
